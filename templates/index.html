@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoL Personal Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container" id="app">
+        <header>
+            <h1>League Analytics <span class="badge">PRO</span></h1>
+            <div class="status-bar">
+                <p>⚙️ Backend: <span id="server-status">Cargando...</span></p>
+                <p>🔗 Riot API: <span id="riot-status">Consultando...</span></p>
+            </div>
+        </header>
+
+        <main>
+            <div class="header-actions">
+                <h2>Historial Reciente</h2>
+                <div>
+                    <button id="btn-analytics" class="btn" style="margin-right: 10px; border-color: var(--accent-blue);">📊 Analíticas</button>
+                    <button id="btn-load-matches" class="btn primary" disabled>Cargar Partidas</button>
+                </div>
+            </div>
+            
+            <div id="analytics-panel" style="display: none; margin-bottom: 40px; padding: 20px; border: 1px solid var(--accent-blue); border-radius: 10px; background: rgba(56, 189, 248, 0.05);">
+                </div>
+
+            <ul id="matches-list" class="match-list"></ul>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

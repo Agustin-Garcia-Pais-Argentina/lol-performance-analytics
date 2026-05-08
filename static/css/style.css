@@ -1,0 +1,220 @@
+/* --- VARIABLES DE COLOR --- */
+:root {
+    --bg-main: #0f172a;       /* Fondo oscuro profundo */
+    --bg-card: #1e293b;       /* Fondo de las tarjetas */
+    --bg-timeline: #0b1120;   /* Fondo aún más oscuro para el timeline */
+    --text-main: #f8fafc;     /* Texto blanco brillante */
+    --text-muted: #94a3b8;    /* Texto grisáceo */
+    --accent-gold: #fbbf24;   /* Dorado estilo Hextech */
+    --accent-blue: #38bdf8;   /* Azul eléctrico */
+    --win-color: #10b981;     /* Verde esmeralda */
+    --lose-color: #ef4444;    /* Rojo carmesí */
+}
+
+/* --- ESTILOS BASE --- */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- CABECERA --- */
+header {
+    border-bottom: 1px solid #334155;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--accent-gold);
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+}
+
+.badge {
+    background: var(--accent-blue);
+    color: #0f172a;
+    font-size: 0.4em;
+    padding: 4px 10px;
+    border-radius: 12px;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.status-bar p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+.header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* --- BOTONES --- */
+.btn {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid #334155;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn.primary {
+    background-color: var(--accent-blue);
+    color: #0f172a;
+    border: none;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* --- TARJETAS DE PARTIDA --- */
+.match-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.match-card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    border-left: 6px solid gray; /* Se sobreescribe en JS con win/lose */
+    transition: transform 0.2s;
+}
+
+.match-card:hover {
+    transform: translateX(5px);
+}
+
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.match-info strong {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.match-stats {
+    color: var(--text-muted);
+    font-size: 0.9em;
+}
+
+/* --- TIMELINE Y TABLAS --- */
+.timeline-container {
+    background-color: var(--bg-timeline);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    border: 1px solid #334155;
+}
+
+.chart-wrapper {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #1e293b;
+}
+
+th {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+tr:hover td {
+    background-color: rgba(255,255,255,0.02);
+}
+/* --- COMPONENTES DROPDOWN / ACCORDION --- */
+.accordion {
+    border: 1px solid #334155;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: var(--bg-card);
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 15px 20px;
+    background-color: #1e293b;
+    color: var(--text-main);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background-color: #334155;
+}
+
+.accordion-header .icon {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #334155;
+    background-color: var(--bg-main);
+}
+
+/* Sub-títulos dentro de los accordions */
+.metric-subtitle {
+    color: var(--accent-gold);
+    border-bottom: 1px solid #334155;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.metric-subtitle:first-child {
+    margin-top: 0;
+}
