@@ -9,6 +9,3 @@ env/
 __pycache__/
 *.pyc
 
-# Base de datos local temporal (opcional, pero recomendado)
-*.db
-*.sqlite3
